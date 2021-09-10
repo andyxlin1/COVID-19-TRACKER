@@ -11,6 +11,5 @@ for each country
 JPA,Thymeleaf, and CSV
 
 Future Updates:
-Add an explanation of why recovered and active are inaccurate.
-
-Use a different database besides John Hopkins to find recovered and active data but explain it's inaccuracy.
+-Add an explanation of why recovered and active are inaccurate.
+-Use a different database besides John Hopkins to find recovered and active data but explain it's inaccuracy.
