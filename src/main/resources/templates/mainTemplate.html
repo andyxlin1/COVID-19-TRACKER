@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>COVID-19 TRACKER</title>
+    <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css">
+    <link rel ="stylesheet" href="http://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+</head>
+<body>
+
+    <nav class="teal">
+        <div class="nav-wrapper">
+            <a href="#" class = "brand-logo center">COVID-19 Tracker</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <table id="corona-table" class ="striped">
+            <thead>
+                <tr>
+                    <th>Place</th>
+                    <th>Confirmed</th>
+                    <th>Confirmed Changes</th>
+                    <th>Active</th>
+                    <th>Recovered</th>
+                    <th>Deaths</th>
+                    <th>Deaths Changes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="corona : ${coronaData}">
+                    <td><p th:text="${corona.combinedKey}"></p></td>
+                    <td th:text="${corona.confirmed}"></td>
+                    <td>
+                        <span th:if="${corona.confirmedChanges > 0}" th:text="${'+' + corona.confirmedChanges}" class="badge red white-text"></span>
+                        <span th:if="${corona.confirmedChanges == 0}" th:text="${corona.confirmedChanges}" class="badge grey black-text"></span>
+                        <span th:if="${corona.confirmedChanges &lt 0}" th:text="${corona.confirmedChanges}" class="badge teal white-text"></span>
+                    </td>
+
+                    <td th:text="${corona.active}"></td>
+                    <td th:text="${corona.recovered}"></td>
+                    <td th:text="${corona.deaths}"></td>
+                    <td>
+                        <span th:if="${corona.deathChanges > 0}" th:text="${'+' + corona.deathChanges}" class="badge red white-text"></span>
+                        <span th:if="${corona.deathChanges == 0}" th:text="${corona.deathChanges}" class="badge grey black-text"></span>
+                        <span th:if="${corona.deathChanges  &lt 0}" th:text="${corona.deathChanges}" class="badge teal white-text"></span>
+                    </td>
+                    
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+
+<script src ="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#corona-table').DataTable( {
+            autoWidth:false,
+            columnDefs: [
+                {
+                    targets: ['_all'],
+                    className: 'mdc-data-table__cell',
+                }
+            ]
+        });
+    });
+</script>
+</body>
+</html>
