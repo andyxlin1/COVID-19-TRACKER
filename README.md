@@ -3,14 +3,11 @@
 John Hopkins stopped reporting daily active and recovered due to the ambiguity within 
 the measurements and failure to report from some areas leading to inaccurate data.
 
-Version 1.0 
+# How to Run
+1. Clone the repo
+2. In a terminal, run "mvn clean install" to get all dependencies
+3. To start the application, in a terminal run "./mvnw spring-boot:run". On default, this should be the local link: http://localhost:8080/
+It will take a while to run due to how many rows is in the csv.
 
-- Website that displays up to date information about COVID-19 using John Hopkins' databases.
-- In table form, it displays the confirmed, recovered, active, and death cases of each day 
-for each country
-- Used Java, SpringBoot, MySQL, HTML/CSS, Javascript, Maven, HTTP, Hibernate, 
-JPA,Thymeleaf, and CSV
-
-Future Updates:
-- Add an explanation of why recovered and active are inaccurate.
-- Use a different database besides John Hopkins to find recovered and active data but explain it's inaccuracy.
+# Decision Making
+Backend Framework: 
